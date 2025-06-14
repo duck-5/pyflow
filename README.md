@@ -144,6 +144,29 @@ The above script will generate a visual representation of the pipeline in a PNG 
 
 ![Example Graph](main_graph.gv.png)
 
+### Console Output:
+```
+[2025-06-14 13:40:55] Printer_0: (1, 0)wow
+[2025-06-14 13:40:55] Printer_1: 2
+[2025-06-14 13:40:55] AlertPrinter: AlertState.WARNING
+[2025-06-14 13:40:56] Printer_0: (6, 12)wow
+[2025-06-14 13:40:56] Printer_1: 20
+[2025-06-14 13:40:56] AlertPrinter: AlertState.WARNING
+[2025-06-14 13:40:57] Printer_0: (13, 20)wow
+[2025-06-14 13:40:57] Printer_0: (22, 32)wow
+[2025-06-14 13:40:57] Printer_1: 40
+[2025-06-14 13:40:57] AlertPrinter: AlertState.ERROR
+[2025-06-14 13:40:57] Printer_0: (28, 40)wow
+[2025-06-14 13:40:58] Printer_0: (37, 52)wow
+[2025-06-14 13:40:59] Printer_1: 60
+[2025-06-14 13:40:59] AlertPrinter: AlertState.ERROR
+[2025-06-14 13:40:59] Printer_0: (43, 60)wow
+[2025-06-14 13:40:59] Printer_0: (52, 72)wow
+[2025-06-14 13:41:00] Printer_0: (58, 80)wow
+[2025-06-14 13:41:00] Printer_1: 80
+[2025-06-14 13:41:00] AlertPrinter: AlertState.ERROR
+```
+
 ## Usage
 
 1. **Define Your Nodes**: Create classes that inherit from `AsyncNode` and implement the `_start` method for processing.
