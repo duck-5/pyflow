@@ -16,7 +16,18 @@ The Python Flow Framework is a modular and asynchronous pipeline framework desig
 To use the Python Flow Framework, ensure you have Python installed, and then install the required packages:
 
 ```bash
-pip install graphviz
+git clone https://github.com/duck-5/pyflow.git
+# Windows:
+pip install ./pyflow
+
+# Linux:
+pip3 install ./pyflow
+```
+
+**To include the visualization utils:**
+```bash
+# Install the 'graphs' extansion
+pip install ./pyflow[graphs]
 ```
 
 Make sure to have Graphviz installed on your system. You can download it from [Graphviz's official website](https://graphviz.gitlab.io/download/).
