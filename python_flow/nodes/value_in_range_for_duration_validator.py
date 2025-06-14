@@ -14,9 +14,7 @@ class ValueInRangeForDurationValidatorNode(Node):
         *args,
         **kwargs,
     ):
-        super().__init__(
-            max_number_of_sources=1, passed_value_type=AlertState, *args, **kwargs
-        )
+        super().__init__(max_number_of_sources=1, passed_value_type=AlertState, *args, **kwargs)
         self._top_limit = top_limit
         self._bottom_limit = bottom_limit
         self._max_duration_seconds = duration_seconds

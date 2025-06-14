@@ -2,10 +2,15 @@ import asyncio
 from typing import Tuple
 
 from python_flow.core import AsyncPipeline
-from python_flow.nodes import (AsyncioTimerDataStreamerNode, CombineNode,
-                               MapperNode, PrinterNode, RangerNode,
-                               RollingSumNode,
-                               ValueInRangeForDurationValidatorNode)
+from python_flow.nodes import (
+    AsyncioTimerDataStreamerNode,
+    CombineNode,
+    MapperNode,
+    PrinterNode,
+    RangerNode,
+    RollingSumNode,
+    ValueInRangeForDurationValidatorNode,
+)
 from python_flow.utils import utils
 
 
@@ -38,16 +43,10 @@ async def main():
         passed_value_type=int,
     )
 
-    str_converter = MapperNode(
-        label="StrConverter", callback=str, passed_value_type=str
-    )
-    wow_suffix_adder = MapperNode(
-        label="WowSuffixAdder", callback=lambda x: x + "wow", passed_value_type=str
-    )
+    str_converter = MapperNode(label="StrConverter", callback=str, passed_value_type=str)
+    wow_suffix_adder = MapperNode(label="WowSuffixAdder", callback=lambda x: x + "wow", passed_value_type=str)
 
-    pipeline_0 = AsyncPipeline(
-        head=ranger_0, middle_nodes=[rolling_sum_of_3, combiner, printer_0]
-    )
+    pipeline_0 = AsyncPipeline(head=ranger_0, middle_nodes=[rolling_sum_of_3, combiner, printer_0])
     pipeline_1 = AsyncPipeline(
         head=ranger_1,
         middle_nodes=[
@@ -59,9 +58,7 @@ async def main():
             printer_0,
         ],
     )
-    pipeline_2 = AsyncPipeline(
-        head=ranger_1, middle_nodes=[rolling_sum_of_2, timer_1, printer_1]
-    )
+    pipeline_2 = AsyncPipeline(head=ranger_1, middle_nodes=[rolling_sum_of_2, timer_1, printer_1])
     pipeline_3 = AsyncPipeline(
         head=ranger_1,
         middle_nodes=[

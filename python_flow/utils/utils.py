@@ -45,9 +45,7 @@ def remove_duplicates(edges: List[GraphEdge]):
     return seen_edges
 
 
-def render_graphviz_graph(
-    pipelines: List[AsyncPipeline], label: str = "python_flow_graph"
-):
+def render_graphviz_graph(pipelines: List[AsyncPipeline], label: str = "python_flow_graph"):
     import os
 
     import graphviz

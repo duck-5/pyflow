@@ -4,8 +4,7 @@ import logging
 from abc import ABC, abstractmethod
 from typing import Any, List, Optional, Tuple
 
-from python_flow.core.enums import (LoggingSeverity, NodeState,
-                                    get_logging_callback_by_severity)
+from python_flow.core.enums import LoggingSeverity, NodeState, get_logging_callback_by_severity
 
 
 class Node(ABC):
@@ -72,10 +71,7 @@ class Node(ABC):
     def set_source(self, node: Node) -> Node:
         self.log(message=f"Setting source {node.label}", severity=LoggingSeverity.DEBUG)
 
-        if (
-            self._max_number_of_sources is not None
-            and len(self._sources) >= self._max_number_of_sources
-        ):
+        if self._max_number_of_sources is not None and len(self._sources) >= self._max_number_of_sources:
             raise RuntimeError(
                 f"Cannot set more sources than max_number_of_sources.\n"
                 f"Additional info: Node {self._label} with {self._max_number_of_sources}"
@@ -115,9 +111,7 @@ class AsyncNode(Node, ABC):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._state = NodeState.WAITING
-        self.log(
-            message=f"Current staet: {self._state}", severity=LoggingSeverity.DEBUG
-        )
+        self.log(message=f"Current staet: {self._state}", severity=LoggingSeverity.DEBUG)
         self._has_started: bool = False
 
     def write(self, _: Optional[Any] = None, /):

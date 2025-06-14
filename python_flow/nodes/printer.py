@@ -12,8 +12,6 @@ class PrinterNode(Node):
 
     def write(self, value: Any = None) -> None:
         self._current_value = value
-        self.log(
-            message=f"Written: {self._current_value}", severity=LoggingSeverity.DEBUG
-        )
+        self.log(message=f"Written: {self._current_value}", severity=LoggingSeverity.DEBUG)
         timestamp = datetime.now().strftime(self._timestamp_format)
         print(f"[{timestamp}] {self.label}: {value}")

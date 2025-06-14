@@ -21,9 +21,7 @@ class GraphEdge:
         self.source_node_label = source_node_label
         self.sink_node_label = sink_node_label
         self.color = color
-        self.style = (
-            self.STYLE_FOR_ASYNC_EDGES if is_async else self.STYLE_FOR_CONSECUTIVE_EDGES
-        )
+        self.style = self.STYLE_FOR_ASYNC_EDGES if is_async else self.STYLE_FOR_CONSECUTIVE_EDGES
         self.width = self.DEFAULT_WIDTH
         self.label = label
 
@@ -42,7 +40,4 @@ class GraphEdge:
         self.width = self.WIDTH_FOR_COMBINED_EDCGES
 
     def __eq__(self, value: GraphEdge) -> bool:
-        return (
-            self.source_node_label == value.source_node_label
-            and self.sink_node_label == value.sink_node_label
-        )
+        return self.source_node_label == value.source_node_label and self.sink_node_label == value.sink_node_label

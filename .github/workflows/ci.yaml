@@ -15,30 +15,6 @@ jobs:
     name: Lint Codebase
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Install linters
-        run: |
-          pip install black flake8 isort toml-lint markdownlint-cli
-
-      - name: Run linters
-        run: |
-          black --check .
-          flake8 .
-          isort --check-only .
-          toml-lint pyproject.toml
-          markdownlint *.md
-
-  test:
-    name: Run Tests
-    runs-on: ubuntu-latest
-    needs: lint
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

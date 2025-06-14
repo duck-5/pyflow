@@ -12,7 +12,5 @@ class CombineNode(Node):
 
     def write(self, _=None):
         self._current_value = self._read_from_all_sources()
-        self.log(
-            message=f"Written: {self._current_value}", severity=LoggingSeverity.DEBUG
-        )
+        self.log(message=f"Written: {self._current_value}", severity=LoggingSeverity.DEBUG)
         self._write_all_sinks
