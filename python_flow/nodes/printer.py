@@ -1,13 +1,16 @@
-from typing import Any, Optional
+from typing import Any
 
 from python_flow.base import Node
 from python_flow.base.enums import LoggingSeverity
+from datetime import datetime
 
 class PrinterNode(Node):
     def __init__(self, *args, **kwargs):
         super().__init__(passed_value_type=None, is_absolute_sink=True, *args, **kwargs)
-    
+        self._timestamp_format = '%Y-%m-%d %H:%M:%S' 
+
     def write(self, value: Any = None) -> None:
         self._current_value = value
         self.log(message=f"Written: {self._current_value}", severity=LoggingSeverity.DEBUG)
-        print(f"{self.label}: {value}")
+        timestamp = datetime.now().strftime(self._timestamp_format)
+        print(f"[{timestamp}] {self.label}: {value}")
