@@ -1,7 +1,7 @@
 from typing import Any, Optional
 
-from pyzrom.base import Node
-from pyzrom.base.enums import LoggingSeverity
+from python_flow.base import Node
+from python_flow.base.enums import LoggingSeverity
 
 class PrinterNode(Node):
     def __init__(self, *args, **kwargs):

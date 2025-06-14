@@ -1,6 +1,6 @@
 import asyncio
 
-from pyzrom.base import AsyncNode
+from python_flow.base import AsyncNode
 
 class RangerNode(AsyncNode):
     def __init__(self, step: float, sleep_between_steps: float = 0.2, *args, **kwargs) -> None:

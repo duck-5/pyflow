@@ -1,7 +1,7 @@
 from typing import List
 
-from pyzrom.base import AsyncPipeline
-from pyzrom.utils.visual_graph_edge import GraphEdge
+from python_flow.base import AsyncPipeline
+from python_flow.utils.visual_graph_edge import GraphEdge
 
 COLORS = [
     "forestgreen",
@@ -37,8 +37,9 @@ def remove_duplicates(edges: List[GraphEdge]):
             seen_edges.append(edge)
     return seen_edges
 
-def render_graphviz_graph(pipelines: List[AsyncPipeline], label: str = "pyzrom_graph"):
-    import graphviz
+def render_graphviz_graph(pipelines: List[AsyncPipeline], label: str = "python_flow_graph"):
+    import graphviz, os
+    os.environ["PATH"] += os.pathsep + r'D:\ProgramFiles\Graphviz-13.0.0-win32\bin'
 
     graph = graphviz.Digraph(label, format="png")
     edges = []
@@ -52,5 +53,6 @@ def render_graphviz_graph(pipelines: List[AsyncPipeline], label: str = "pyzrom_g
             edge.mark_as_combined_edge()
         edge.add_to_graphviz(graph)
     
+    graph.attr(dpi="300")
     graph.render(filename=f"{label}.gv")
 

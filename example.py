@@ -1,8 +1,8 @@
 import asyncio
 from typing import Tuple
 
-from pyzrom.base import AsyncPipeline
-from pyzrom.nodes import (
+from python_flow.base import AsyncPipeline
+from python_flow.nodes import (
     AsyncioTimerDataStreamerNode,
     CombineNode,
     MapperNode,
@@ -12,7 +12,7 @@ from pyzrom.nodes import (
     ValueInRangeForDurationValidatorNode
 )
 
-from pyzrom.utils import utils
+from python_flow.utils import utils
 
 async def main():
     ranger_0 = RangerNode(label="Ranger_0", step=1)
