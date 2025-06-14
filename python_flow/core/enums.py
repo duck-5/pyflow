@@ -1,14 +1,17 @@
 from enum import Enum, auto
 
+
 class NodeState:
     WAITING = auto()
     RUNNING = auto()
     HIBERNATING = auto()
 
+
 class PipelineState(Enum):
     UNINITIALIZED = auto()
     WAITING = auto()
     RUNNING = auto()
+
 
 class LoggingSeverity(Enum):
     DEBUG = auto()
@@ -16,6 +19,7 @@ class LoggingSeverity(Enum):
     WARNING = auto()
     ERROR = auto()
     CRITICAL = auto()
+
 
 class AlertState(Enum):
     UNKNOWN = auto()

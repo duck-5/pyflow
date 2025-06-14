@@ -5,8 +5,16 @@ from typing import Any, Optional
 from python_flow.core import AsyncNode
 from python_flow.core.enums import LoggingSeverity, NodeState
 
+
 class AsyncioTimerNode(AsyncNode, ABC):
-    def __init__(self, loop, timer_interval_seconds: float, timeout: Optional[int] = None, *args, **kwargs) -> None:
+    def __init__(
+        self,
+        loop,
+        timer_interval_seconds: float,
+        timeout: Optional[int] = None,
+        *args,
+        **kwargs,
+    ) -> None:
         super().__init__(*args, **kwargs)
         self._loop = loop
         self._timer_interval_seconds = timer_interval_seconds
@@ -14,7 +22,7 @@ class AsyncioTimerNode(AsyncNode, ABC):
         self._state = NodeState.WAITING
         self._time_from_last_call = 0
         self._task = None
-    
+
     async def _start(self):
         self._state = NodeState.RUNNING
         self.log(message=f"Changed state: {self._state}", severity=LoggingSeverity.INFO)
@@ -24,12 +32,12 @@ class AsyncioTimerNode(AsyncNode, ABC):
             await asyncio.sleep(self._timer_interval_seconds)
         self._state = NodeState.HIBERNATING
         self.log(message=f"Changed state: {self._state}", severity=LoggingSeverity.INFO)
-    
+
     def write(self, value: Optional[Any] = None, /) -> None:
         self._time_from_last_call = 0
         if self._state == NodeState.HIBERNATING:
             self._task = asyncio.create_task(self._start)
-    
+
     @abstractmethod
     def _spin(self):
         ...
