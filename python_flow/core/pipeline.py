@@ -1,7 +1,7 @@
 from  typing import Any, Awaitable, Callable, List, Optional
 
-from python_flow.base import AsyncNode, Node
-from python_flow.base.enums import PipelineState
+from python_flow.core import AsyncNode, Node
+from python_flow.core.enums import PipelineState
 from python_flow.utils.visual_graph_edge import GraphEdge
 
 class AsyncPipeline:

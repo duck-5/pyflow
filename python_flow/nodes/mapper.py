@@ -1,6 +1,6 @@
 from typing import Any, Callable, Optional
 
-from python_flow.base import Node
+from python_flow.core import Node
 
 class MapperNode(Node):
     def __init__(self, callback: Callable[[Any], Any], *args, **kwargs):

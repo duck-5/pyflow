@@ -2,8 +2,8 @@ import asyncio
 from abc import ABC, abstractmethod
 from typing import Any, Optional
 
-from python_flow.base import AsyncNode
-from python_flow.base.enums import LoggingSeverity, NodeState
+from python_flow.core import AsyncNode
+from python_flow.core.enums import LoggingSeverity, NodeState
 
 class AsyncioTimerNode(AsyncNode, ABC):
     def __init__(self, loop, timer_interval_seconds: float, timeout: Optional[int] = None, *args, **kwargs) -> None:

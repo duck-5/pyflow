@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from python_flow.base import Node
+from python_flow.core import Node
 
 class MockNode(Node):
     def __init__(self, *args, **kwargs) -> None:

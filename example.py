@@ -1,7 +1,7 @@
 import asyncio
 from typing import Tuple
 
-from python_flow.base import AsyncPipeline
+from python_flow.core import AsyncPipeline
 from python_flow.nodes import (
     AsyncioTimerDataStreamerNode,
     CombineNode,

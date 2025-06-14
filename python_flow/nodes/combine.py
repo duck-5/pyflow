@@ -1,6 +1,6 @@
 from typing import Any, Optional, Tuple
-from python_flow.base import Node
-from python_flow.base.enums import LoggingSeverity
+from python_flow.core import Node
+from python_flow.core.enums import LoggingSeverity
 
 class CombineNode(Node):
     def __init__(self, *args, **kwargs) -> None:

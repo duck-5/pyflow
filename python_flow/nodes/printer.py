@@ -1,7 +1,7 @@
 from typing import Any
 
-from python_flow.base import Node
-from python_flow.base.enums import LoggingSeverity
+from python_flow.core import Node
+from python_flow.core.enums import LoggingSeverity
 from datetime import datetime
 
 class PrinterNode(Node):

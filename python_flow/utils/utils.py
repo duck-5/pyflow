@@ -1,6 +1,7 @@
 from typing import List
 
-from python_flow.base import AsyncPipeline
+from python_flow.core import AsyncPipeline
+from python_flow.core.enums import LoggingSeverity
 from python_flow.utils.visual_graph_edge import GraphEdge
 
 COLORS = [
@@ -25,6 +26,9 @@ COLORS = [
 async def async_start_pipelines(pipelines: List[AsyncPipeline]):
     for pipeline in pipelines:
         await pipeline.start()
+
+def get_logging_callback_by_severity(logger, severity: LoggingSeverity):
+    return getattr(logger, severity.name.lower())
 
 def initialize_all_pipelines(pipelines: List[AsyncPipeline]):
     for pipeline in pipelines:

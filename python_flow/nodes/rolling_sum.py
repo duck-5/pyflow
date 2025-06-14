@@ -1,6 +1,6 @@
 from collections import deque
 
-from python_flow.base import Node
+from python_flow.core import Node
 
 class RollingSumNode(Node):
     def __init__(self, summed_queue_len: int, *args, **kwargs):

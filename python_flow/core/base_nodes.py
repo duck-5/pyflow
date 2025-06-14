@@ -4,7 +4,7 @@ import logging
 from abc import ABC, abstractmethod
 from typing import Any, List, Optional, Tuple
 
-from python_flow.base.enums import LoggingSeverity, NodeState, get_logging_callback_by_severity
+from python_flow.core.enums import LoggingSeverity, NodeState, get_logging_callback_by_severity
 
 class Node(ABC):
     @property

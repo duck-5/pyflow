@@ -1,8 +1,8 @@
 import time
 
 from typing import Optional, Union
-from python_flow.base import Node
-from python_flow.base.enums import AlertState
+from python_flow.core import Node
+from python_flow.core.enums import AlertState
 
 class ValueInRangeForDurationValidatorNode(Node):
     def __init__(

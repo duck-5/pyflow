@@ -23,6 +23,3 @@ class AlertState(Enum):
     WARNING = auto()
     ERROR = auto()
     CRITICAL = auto()
-
-def get_logging_callback_by_severity(logger, severity: LoggingSeverity):
-    return getattr(logger, severity.name.lower())
