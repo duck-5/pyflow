@@ -5,7 +5,7 @@ from python_flow.core import Node
 
 class RollingSumNode(Node):
     def __init__(self, summed_queue_len: int, *args, **kwargs):
-        kwargs.setdefault("passed_value_type", float)
+        kwargs.setdefault("input_type", float)
         super().__init__(max_number_of_sources=1, *args, **kwargs)
         self._summed_queue_len = summed_queue_len
         self._data_buffer = deque(maxlen=summed_queue_len)

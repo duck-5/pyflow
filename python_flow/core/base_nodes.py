@@ -4,7 +4,8 @@ import logging
 from abc import ABC, abstractmethod
 from typing import Any, List, Optional, Tuple
 
-from python_flow.core.enums import LoggingSeverity, NodeState, get_logging_callback_by_severity
+from python_flow.core.enums import LoggingSeverity, NodeState
+from python_flow.utils.utils import get_logging_callback_by_severity
 
 
 class Node(ABC):
@@ -33,19 +34,19 @@ class Node(ABC):
         return self._state
 
     @property
-    def passed_value_type(self) -> Optional[str]:
-        if hasattr(self._passed_value_type, "_name"):  # A typing instance
-            return str(self._passed_value_type).lstrip("typing.")
-        if hasattr(self._passed_value_type, "__name__"):  # A typing instance
-            return self._passed_value_type.__name__
-        if self._passed_value_type is None:
+    def input_type(self) -> Optional[str]:
+        if hasattr(self._input_type, "_name"):  # A typing instance
+            return str(self._input_type).lstrip("typing.")
+        if hasattr(self._input_type, "__name__"):  # A typing instance
+            return self._input_type.__name__
+        if self._input_type is None:
             return None
         return "Unknown"
 
     def __init__(
         self,
         label: str,
-        passed_value_type: Any = Any,
+        input_type: Any = Any,
         logger: Any = None,
         min_number_of_sources: Optional[int] = None,
         max_number_of_sources: Optional[int] = None,
@@ -54,7 +55,7 @@ class Node(ABC):
     ):
         self._label = label
         self._logger = logger or logging.getLogger(label)
-        self._passed_value_type = passed_value_type
+        self._input_type = input_type
         self._min_number_of_sources = min_number_of_sources
         self._max_number_of_sources = max_number_of_sources
         self._is_absolute_sink = is_absolute_sink

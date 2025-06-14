@@ -6,7 +6,7 @@ from python_flow.core.enums import LoggingSeverity
 
 class CombineNode(Node):
     def __init__(self, *args, **kwargs) -> None:
-        kwargs.setdefault("passed_value_type", Tuple[Any])
+        kwargs.setdefault("input_type", Tuple[Any])
         super().__init__(*args, **kwargs)
         self._current_value: Optional[Tuple[Any, ...]] = None
 

@@ -5,7 +5,7 @@ from python_flow.core import Node
 
 class MockNode(Node):
     def __init__(self, *args, **kwargs) -> None:
-        kwargs.setdefault("passed_value_type", None)
+        kwargs.setdefault("input_type", None)
         super().__init__(*args, **kwargs)
 
     @property

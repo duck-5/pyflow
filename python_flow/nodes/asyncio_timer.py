@@ -33,7 +33,7 @@ class AsyncioTimerNode(AsyncNode, ABC):
         self._state = NodeState.HIBERNATING
         self.log(message=f"Changed state: {self._state}", severity=LoggingSeverity.INFO)
 
-    def write(self, value: Optional[Any] = None, /) -> None:
+    def write(self, _=None, /) -> None:
         self._time_from_last_call = 0
         if self._state == NodeState.HIBERNATING:
             self._task = asyncio.create_task(self._start)

@@ -7,7 +7,7 @@ from python_flow.core.enums import LoggingSeverity
 
 class PrinterNode(Node):
     def __init__(self, *args, **kwargs):
-        super().__init__(passed_value_type=None, is_absolute_sink=True, *args, **kwargs)
+        super().__init__(input_type=None, is_absolute_sink=True, *args, **kwargs)
         self._timestamp_format = "%Y-%m-%d %H:%M:%S"
 
     def write(self, value: Any = None) -> None:

@@ -50,7 +50,7 @@ class AsyncPipeline:
                 sink.label,
                 color=color,
                 is_async=issubclass(type(sink), AsyncNode),
-                label=node.passed_value_type,
+                label=node.input_type,
             )
             edges.append(edge)
         return edges
